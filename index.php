@@ -45,11 +45,11 @@
 		?>
 	<tbody>
 		<tr>
-		<td width="70"><?php echo $board['idx']; ?></td>
+		<td width="70"><?php echo $seq; ?></td>
 		<td width="500"><a href=""><?php echo $title;?></a></td>
-		<td width="120"><?php echo $board['name']?></td>
-		<td width="100"><?php echo $board['date']?></td>
-		<td width="100"><?php echo $board['hit']; ?></td>
+		<td width="120"><?php echo $writer?></td>
+		<td width="100"><?php echo $write_date?></td>
+		<td width="100"><?php echo $hits; ?></td>
 		</tr>
 	</tbody>
 	<p><input type="button" value="Login" class="login_btn"><a href="login_ok.php"></a></p>
