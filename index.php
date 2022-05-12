@@ -1,7 +1,10 @@
 <?php 
 	include_once $_SERVER['DOCUMENT_ROOT']."dbconfig.php"; 
-	
+	include_once $_SERVER['DOCUMENT_ROOT']."common.php"; 
+
 	$select_query = "SELECT * FROM contents limit 10";
+	// $select_result = $conn->query($select_query);
+    // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_assoc($select_result);
 	
@@ -53,10 +56,15 @@
 	</tbody>
 	<p><input type="button" value="Login" class="login_btn"><a href="login_ok.php"></a></p>
 	<?php } ?>
+	<input type=button value="글쓰기"><a href="/page/board/write.php"><button>글쓰기</button></a>
 	</table>
 	<!-- <div id="write_btn"> -->
-	<input type=button value="글쓰기"><a href="/page/board/write.php"><button>글쓰기</button></a>
 	<!-- </div> -->
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>
+
+<script>
+	
+</script>
