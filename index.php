@@ -21,7 +21,7 @@
 		<h1>자유게시판</h1>
 		<h4>자유롭게 글을 쓸 수 있는 게시판입니다.</h4>
 		<div style="float: right;">
-			<p><input type="button" value="로그인" class="login_btn"><a href="login_ok.php"></a></p>
+			<p><input type="button" value="로그인" class="login_btn" onclick="location.href='login.php'"></a></p>
 		</div>
 		<table class="list-table">
 	<thead>
