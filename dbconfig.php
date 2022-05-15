@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli("localhost", "sunho", "1234", "frontdb");
+    $conn = mysqli_connect("localhost", "sunho", "1234", "frontdb");
     $conn->set_charset("utf8");
 
     if(!$conn) {
