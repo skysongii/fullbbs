@@ -1,10 +1,8 @@
 <?php 
-	// include_once $_SERVER['DOCUMENT_ROOT']."dbconfig.php"; 
+    include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/dbconfig.php";
 	include_once "common.php"; 
-	include_once "dbconfig.php";
 	session_start();
 
-	// $conn = mysqli_connect("127.0.0.1", "sunho", "1234" , "frontdb");
 	$select_query = "SELECT * FROM contents limit 10";
 	// $select_result = $conn->query($select_query);
     // $row = $select_result->fetch_assoc();
@@ -25,7 +23,7 @@
 		<h4>자유롭게 글을 쓸 수 있는 게시판입니다.</h4>
 		<? if($ses_id) { ?>
 			<div style="float: right;" id="ok-login">
-				<p><input type="button" value="로그아웃" class="login_btn" onclick="location.href='login.php'"></a></p>
+				<p><input type="button" value="로그아웃" class="login_btn" onclick=""></a></p>
 			</div>
 		<? } else { ?>
 			<div style="float: right;" id="no-login">
@@ -75,17 +73,16 @@
 	<br>
 		<input type="button" value="글쓰기" onclick="location.href='write.php'">
 	</div>
-<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 </body>
 </html>
 
 <script>
 	$(document).ready(function() {
-		aa();
-	});
-	var title = "<?=$row?>";
-	function aa() {
-		console.log(title);
-	}
 
+	});
+
+	function logout() {
+		// <?= session_destroy();?>;
+		location.reload();
+	}
 </script>
