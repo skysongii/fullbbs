@@ -10,11 +10,9 @@
     $select_result = $conn->query($select_query);
     $row = $select_result->fetch_assoc();
     $row_id = $row['id'];
-    
-    if(!empty($row_id)) { ?>
-        <script>alert("이미 가입된 회원 아이디입니다."); history.back();</script> 
-    <?} else { ?>
-        <script>alert("가입을 축하합니다!!"); location.href="login.php";</script>      
-        <? $insert_query = "INSERT INTO member (id, pw, name, email) VALUES ('$mb_id', '$mb_pw', '$mb_name', '$mb_email')";
-        $insert_result = $conn->query($insert_query);
-    }?>
+?>
+    <script>alert("가입을 축하합니다!!"); location.href="login.php";</script>      
+    <?
+    $insert_query = "INSERT INTO member (id, pw, name, email) VALUES ('$mb_id', HEX(AES_ENCRYPT('$mb_pw','gksmfs0ng@')), '$mb_name', '$mb_email')";
+    $insert_result = $conn->query($insert_query);
+    ?>
