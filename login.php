@@ -15,7 +15,7 @@
                 <!-- <input type="button" value="중복확인" onclick="validationChk()";> -->
                 </p><br>
                 <p><input type="password" name="userpw" id="userpw" placeholder="Password"></p><br>
-                <p><input type="button" value="Login" class="login_btn" onclick="location.href='login_ok.php'";></p>
+                <p><input type="submit" value="Login" class="login_btn"></p>
             </form>
             <br>
             <h3>회원이 아니신가요? <input type="button" value="회원가입" onclick="location.href='join.php'"></h3>

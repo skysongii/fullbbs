@@ -2,6 +2,7 @@
 	// include_once $_SERVER['DOCUMENT_ROOT']."dbconfig.php"; 
 	include_once "common.php"; 
 	include_once "dbconfig.php";
+	session_start();
 
 	// $conn = mysqli_connect("127.0.0.1", "sunho", "1234" , "frontdb");
 	$select_query = "SELECT * FROM contents limit 10";
@@ -9,7 +10,9 @@
     // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_array($select_result);
+	$ses_id = $_SESSION['login_id'];
 	?>
+
 <!doctype html>
 <head>
 	<meta charset="UTF-8">
@@ -20,9 +23,16 @@
 	<div id="board_area"> 
 		<h1>자유게시판</h1>
 		<h4>자유롭게 글을 쓸 수 있는 게시판입니다.</h4>
-		<div style="float: right;">
-			<p><input type="button" value="로그인" class="login_btn" onclick="location.href='login.php'"></a></p>
-		</div>
+		<? if($ses_id) { ?>
+			<div style="float: right;" id="ok-login">
+				<p><input type="button" value="로그아웃" class="login_btn" onclick="location.href='login.php'"></a></p>
+			</div>
+		<? } else { ?>
+			<div style="float: right;" id="no-login">
+				<p><input type="button" value="로그인" class="login_btn" onclick="location.href='login.php'"></a></p>
+			</div>
+		<? } ?>
+
 		<table class="list-table">
 	<thead>
 		<tr>
