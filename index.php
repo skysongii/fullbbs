@@ -1,14 +1,12 @@
 <?php 
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/dbconfig.php";
 	include_once "common.php"; 
-	session_start();
 
 	$select_query = "SELECT * FROM contents limit 10";
 	// $select_result = $conn->query($select_query);
     // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_array($select_result);
-	$ses_id = $_SESSION['login_id'];
 	?>
 
 <!doctype html>
@@ -82,7 +80,6 @@
 	});
 
 	function logout() {
-		// <?= session_destroy();?>;
 		location.reload();
 	}
 </script>
