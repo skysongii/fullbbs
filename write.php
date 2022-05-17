@@ -1,4 +1,9 @@
-<!DOCTYPE>
+<?php
+    include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/common.php";
+
+?>
+
+<!DOCTYPE html>
  
 <html>
 <head>
@@ -21,7 +26,7 @@
                 border-bottom: 1px solid #ccc;
         }
         table.table2 td {
-                 width: 100px;
+                 width: 150px;
                  padding: 10px;
                  vertical-align: top;
                  border-bottom: 1px solid #ccc;
@@ -30,15 +35,15 @@
 </style>
 <body>
         <form method = "POST" action = "write_action.php">
-        <table  style="padding-top:50px" align = center width=700 border=0 cellpadding=2 >
+        <table  style="padding-top:50px" align = center width=800 border=0 cellpadding=2 >
                 <tr>
-                <td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
+                <td height=20 align=center bgcolor=#ccc><font color=white> 글쓰기</font></td>
                 </tr>
                 <tr>
                 <td bgcolor=white>
                 <table class = "table2">
                     <tr>
-                    <td width="100">작성자</td>
+                    <td>작성자</td>
                     <td><input type = text name = name size=20> </td>
                     </tr>
 
