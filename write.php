@@ -1,6 +1,5 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/common.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +43,13 @@
                 <table class = "table2">
                     <tr>
                     <td>작성자</td>
-                    <td><input type = text name = name size=20> </td>
+                    <?php 
+                        if($ses_id) { ?>
+							<td><input type=text value=<?=$ses_id?> name=name size=20 readonly></td>
+						<? }
+						else { ?>
+							<td><input type=text name=name size=20></td>
+						<? } ?>
                     </tr>
 
                     <tr>
