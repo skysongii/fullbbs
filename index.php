@@ -7,6 +7,7 @@
     // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_array($select_result);
+
 	?>
 
 <!doctype html>
@@ -16,19 +17,20 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-	<div id="board_area"> 
-		<h1>자유게시판</h1>
+	<div id="board_area"><br>
+		<h1><center>자유게시판</center></h1>
 		<h4>자유롭게 글을 쓸 수 있는 게시판입니다.</h4>
 		<? if($ses_id) { ?>
 			<div style="float: right;" id="ok-login">
-				<p><input type="button" value="로그아웃" class="login_btn" onclick=""></a></p>
+				<p><span style="font-weight:bold;"><?=$ses_id?></span>님 환영합니다!</p><br>
+				<p><input type="button" value="로그아웃" class="login_btn" onclick="logout();"></a></p>
 			</div>
 		<? } else { ?>
 			<div style="float: right;" id="no-login">
 				<p><input type="button" value="로그인" class="login_btn" onclick="location.href='login.php'"></a></p>
 			</div>
 		<? } ?>
-
+		<br><br>
 		<table class="list-table">
 	<thead>
 		<tr>
@@ -58,7 +60,7 @@
 					}
 					?>
 			<td width="70"><?= $seq; ?></td>
-			<td width="500"><a href=""><?php echo $title;?></a></td>
+			<td width="500"><a href="index.php?<?$seq?>"><?php echo $title;?></a></td>
 			<td width="120"><?php echo $writer?></td>
 			<td width="100"><?php echo $w_date?></td>
 			<td width="100"><?php echo $hits; ?></td>
@@ -80,6 +82,6 @@
 	});
 
 	function logout() {
-		location.reload();
-	}
+
+}
 </script>
