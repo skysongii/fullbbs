@@ -70,7 +70,7 @@
                         </center>
                 </td>
                 </tr>
-        </table>
+        </table> 
         </form>
 </body>
 </html>
