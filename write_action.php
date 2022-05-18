@@ -6,6 +6,13 @@ $title = $_POST['title'];
 $name = $_POST['name'];
 $content = $_POST['content'];
 
+if(empty($name)) {
+    echo "<script>작성자를 입력해주세요.</script>";
+} else if(empty($title)) {
+    echo "<script>제목을 입력해주세요.</script>";
+} else if(empty($content)) {
+    echo "<script>내용을 입력해주세요.</script>";
+}
 $insert_query = "INSERT INTO contents(title, writer, content, write_date) VALUES ('$title', '$name', '$content', NOW())";
 
 if(mysqli_query($conn, $insert_query)) {

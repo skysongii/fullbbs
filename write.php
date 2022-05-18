@@ -45,7 +45,7 @@
                     <td>작성자</td>
                     <?php 
                         if($ses_id) { ?>
-							<td><input type=text value=<?=$ses_id?> name=name size=20 readonly></td>
+							<td><input type=text value=<?=$ses_id?> name=name size=20 maxlength="10" readonly></td>
 						<? }
 						else { ?>
 							<td><input type=text name=name size=20></td>
@@ -54,12 +54,12 @@
 
                     <tr>
                     <td>제목</td>
-                    <td><input type = text name = title size=60></td>
+                    <td><input type=text name=title size=60 maxlength="50"></td>
                     </tr>
 
                     <tr>
                     <td>내용</td>
-                    <td><textarea name = content cols=85 rows=15></textarea></td>
+                    <td><textarea name=content cols=85 rows=15 maxlength="2000"></textarea></td>
                     </tr>
 
                     <tr>
