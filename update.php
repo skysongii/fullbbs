@@ -7,7 +7,7 @@
 
     $select_query = "SELECT content FROM contents WHERE seq='$seq'";
     $select_result = mysqli_query($conn, $select_query);
-    // echo $select_result;
+    // echo $select_result; 
 ?>
 
 <!DOCTYPE html>
