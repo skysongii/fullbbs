@@ -40,7 +40,7 @@
 			</div><br><br>
 			<div id="boardContent">내용 : <?= $content?></div><br>
 			<div class="btnSet">
-				<a href="./write.php?seq=<?= $seq?>">수정</a>&nbsp;&nbsp;
+				<a href="./update.php?seq=<?= $seq?>">수정</a>&nbsp;&nbsp;
 				<a href="./delete.php?seq=<?= $seq?>">삭제</a>&nbsp;&nbsp;
 				<a href="./">목록</a>
 			</div>
