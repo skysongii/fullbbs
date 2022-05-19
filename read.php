@@ -3,9 +3,6 @@
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/common.php";
 
     $seq = $_GET['seq'];    // URL 파라미터
-    $hits = $_POST['hits'];
-
-    echo $hits;
 
     // $update_query = "UPDATE contents SET hits"
 
