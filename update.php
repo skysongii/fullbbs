@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/dbconfig.php";
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/common.php";
 
-    $seq = $_GET['seq'];
+    $seq = $_GET['seq']; 
     echo $seq;
 
     $select_query = "SELECT content FROM contents WHERE seq='$seq'";
