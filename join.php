@@ -91,7 +91,7 @@
         let id  = $("#userid").val();           // 호이스팅 불가
         let pwd = $("#userpw").val();
         let pwd_chk = $("#userpw_ch").val();
-        let name = $("#username").val();
+        let name = $("#username").val().trim();
         let email = $("#useremail").val();
 
         if(chk_yn >= 1) {
