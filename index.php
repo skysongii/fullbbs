@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/dbconfig.php";
 	include_once "common.php"; 
 
-	$select_query = "SELECT * FROM contents limit 10";
+	$select_query = "SELECT * FROM contents ORDER BY seq DESC limit 10";
 	// $select_result = $conn->query($select_query);
     // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
@@ -60,7 +60,7 @@
 					}
 					?>
 			<td width="70"><?= $seq; ?></td>
-			<td width="500"><a href="index.php?<?$seq?>"><?php echo $title;?></a></td>
+			<td width="500"><a href="read.php?seq=<?=$seq?>"><?php echo $title;?></a></td>
 			<td width="120"><?php echo $writer?></td>
 			<td width="100"><?php echo $w_date?></td>
 			<td width="100"><?php echo $hits; ?></td>
