@@ -1,10 +1,12 @@
 <?php
     include_once "dbconfig.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/common.php";
+
 
     $mb_id = $_POST['userid'];
     $mb_pw = $_POST['userpw'];
 
-    $select_query = "SELECT id, AES_DECRYPT(UNHEX(pw), 'gksmfs0ng@') as pw from member where id = '$mb_id'";
+    $select_query = "SELECT id, AES_DECRYPT(UNHEX(pw), '$password') as pw from member where id = '$mb_id'";
     $select_result = mysqli_query($conn, $select_query);
     $row = mysqli_fetch_assoc($select_result);
     $row_mb_id = $row['id'];
