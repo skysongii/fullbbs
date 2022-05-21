@@ -6,11 +6,13 @@
 
     // $update_query = "UPDATE contents SET hits"
 
-    $select_query = "SELECT * FROM contents WHERE seq='$seq'";
+    $select_query = "SELECT * FROM contents WHERE seq='$seq'";	// url 파라미터로 받은 게시물 데이터 불러오기
     $select_result = mysqli_query($conn, $select_query);
     $row = mysqli_fetch_array($select_result);
 
-    
+	$update_query = "UPDATE contents SET hits = hits + 1 WHERE seq = '$seq'";	// url 파라미터로 받은 게시물 조회수 1씩 증가
+	$update_result = mysqli_query($conn, $update_query);
+
     $writer = $row['writer'];
     $write_date = $row['write_date'];
     $hits = $row['hits'];
