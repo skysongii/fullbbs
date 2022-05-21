@@ -1,11 +1,10 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/dbconfig.php";
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/common.php";
-
+	
+	$real_ip = $_SERVER['REMOTE_ADDR'];	// 게시물 조회 사용자 ip
     $seq = $_GET['seq'];    // URL 파라미터
 
-	$real_ip = $_SERVER['REMOTE_ADDR'];
-    // $update_query = "UPDATE contents SET hits"
 
     $select_query = "SELECT * FROM contents WHERE seq='$seq'";	// url 파라미터로 받은 게시물 데이터 불러오기
     $select_result = mysqli_query($conn, $select_query);
@@ -20,11 +19,6 @@
     $hits = $row['hits'];
     $content = $row['content'];
 
-	// $fp = fopen($_SERVER['DOCUMENT_ROOT'] . "csh_".date("Ymd").".log", "a+");
-	// fputs($fp, "\r\n[".date("Y-m-d H:i:s")."]\n");
-	// fputs($fp, "content: " . print_r($content,true) . "\n");
-	// fclose($fp);
-
 	$log_dir = $_SERVER['DOCUMENT_ROOT']."/new_bbs/log";
 	$log_file = fopen($log_dir."/csh_".date("Ymd"), "a+");
 	fwrite($log_file, "\r\n".date("Y-m-d H:i:s")."\r\n".$seq."번째 게시물 -> \r\n"."제목 : ".$title.
@@ -35,10 +29,6 @@
 												"\r\n조회 아이피 : ".$real_ip."\r\n");
 	fclose($log_file);
 
-    // echo $row['writer'];
-    // echo "\n".$row['write_date'];
-    // echo "\n".$row['hits'];
-    // echo "\n".$row['content'];
 ?>
 
 <!DOCTYPE html>
