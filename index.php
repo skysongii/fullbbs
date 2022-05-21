@@ -2,12 +2,11 @@
     include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/dbconfig.php";
 	include_once "common.php"; 
 
-	$select_query = "SELECT * FROM contents ORDER BY seq DESC limit 10";
+	$select_query = "SELECT * FROM contents ORDER BY seq DESC";
 	// $select_result = $conn->query($select_query);
     // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
 	$row = mysqli_fetch_array($select_result);
-
 	?>
 
 <!doctype html>
@@ -53,6 +52,12 @@
 					$w_date = substr($write_date, 2, 14);
 					$hits = $row['hits'];
 
+					echo "\n".$seq;
+					echo "\n".$title;
+					echo "\n".$writer;
+					echo "\n".$write_date;
+					echo "\n".$w_date;
+					echo "<br> \n".$hits;
 					if(strlen($title)>30)
 					{ 
 						//title이 30을 넘어서면 ...표시
@@ -78,7 +83,7 @@
 
 <script>
 	$(document).ready(function() {
-
+		// location.reload();
 	});
 
 	function logout() {
