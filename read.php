@@ -4,6 +4,7 @@
 
     $seq = $_GET['seq'];    // URL 파라미터
 
+	$real_ip = $_SERVER['REMOTE_ADDR'];
     // $update_query = "UPDATE contents SET hits"
 
     $select_query = "SELECT * FROM contents WHERE seq='$seq'";	// url 파라미터로 받은 게시물 데이터 불러오기
@@ -13,10 +14,26 @@
 	$update_query = "UPDATE contents SET hits = hits + 1 WHERE seq = '$seq'";	// url 파라미터로 받은 게시물 조회수 1씩 증가
 	$update_result = mysqli_query($conn, $update_query);
 
+	$title = $row['title'];
     $writer = $row['writer'];
     $write_date = $row['write_date'];
     $hits = $row['hits'];
     $content = $row['content'];
+
+	// $fp = fopen($_SERVER['DOCUMENT_ROOT'] . "csh_".date("Ymd").".log", "a+");
+	// fputs($fp, "\r\n[".date("Y-m-d H:i:s")."]\n");
+	// fputs($fp, "content: " . print_r($content,true) . "\n");
+	// fclose($fp);
+
+	$log_dir = $_SERVER['DOCUMENT_ROOT']."/new_bbs/log";
+	$log_file = fopen($log_dir."/csh_".date("Ymd"), "a+");
+	fwrite($log_file, "\r\n".date("Y-m-d H:i:s")."\r\n".$seq."번째 게시물 -> \r\n"."제목 : ".$title.
+												"\r\n작성자 : ".$writer.
+												"\r\n작성일 : ".$write_date.
+												"\r\n내용 : ".$content.
+												"\r\n조회수 : ".$hits.
+												"\r\n조회 아이피 : ".$real_ip."\r\n");
+	fclose($log_file);
 
     // echo $row['writer'];
     // echo "\n".$row['write_date'];
