@@ -52,12 +52,6 @@
 					$w_date = substr($write_date, 2, 14);
 					$hits = $row['hits'];
 
-					echo "\n".$seq;
-					echo "\n".$title;
-					echo "\n".$writer;
-					echo "\n".$write_date;
-					echo "\n".$w_date;
-					echo "<br> \n".$hits;
 					if(strlen($title)>30)
 					{ 
 						//title이 30을 넘어서면 ...표시
