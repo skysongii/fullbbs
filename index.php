@@ -45,12 +45,12 @@
 				while($row = mysqli_fetch_array($select_result))
 				{
 					//title변수에 DB에서 가져온 title을 선택
-					$seq = $row['seq'];
-					$title = $row['title'];
-					$writer = $row['writer'];
-					$write_date = $row['write_date'];
-					$w_date = substr($write_date, 2, 14);
-					$hits = $row['hits'];
+					$seq = $row['seq'];						// 게시글 번호
+					$title = $row['title'];					// 게시글 제목
+					$writer = $row['writer'];				// 게시글 작성자
+					$write_date = $row['write_date'];		// 게시글 날짜
+					$w_date = substr($write_date, 2, 14);	// 상동
+					$hits = $row['hits'];					// 게시글 조회수
 
 					if(strlen($title)>30)
 					{ 
