@@ -18,7 +18,8 @@
 <body>
 	<div id="board_area"><br>
 		<h1><center>자유게시판</center></h1>
-		<h4>자유롭게 글을 쓸 수 있는 게시판입니다.</h4>
+		<h4>자유롭게 글을 쓸 수 있는 게시판입니다.</h4><br>
+		<? include_once $_SERVER['DOCUMENT_ROOT']."/new_bbs/header.php";?>
 		<? if($ses_id) { ?>
 			<div style="float: right;" id="ok-login">
 				<p><span style="font-weight:bold;"><?=$ses_id?></span>님 환영합니다!</p><br>
