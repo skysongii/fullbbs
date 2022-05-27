@@ -6,7 +6,6 @@
 	// $select_result = $conn->query($select_query);
     // $row = $select_result->fetch_assoc();
 	$select_result = mysqli_query($conn, $select_query);
-	$row = mysqli_fetch_array($select_result);
 	?>
 
 <!doctype html>
@@ -58,7 +57,7 @@
 						//title이 30을 넘어서면 ...표시
 						$title=str_replace($board["title"],mb_substr($board["title"],0,30,"utf-8")."...",$board["title"]);
 					}
-					?>
+				?>
 			<td width="70"><?= $seq; ?></td>
 			<td width="500"><a href="read.php?seq=<?=$seq?>"><?php echo $title;?></a></td>
 			<td width="120"><?php echo $writer?></td>
