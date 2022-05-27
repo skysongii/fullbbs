@@ -12,8 +12,8 @@
     $row_mb_id = $row['id'];
     $row_mb_pw = $row['pw'];
 
+    
     if($mb_id != '' || $mb_pw != '') {
-
         if($row_mb_id == $mb_id && $row_mb_pw == $mb_pw) { ?>
             <script>alert("로그인에 성공했습니다."); location.href="index.php"</script>
             <? session_start();
