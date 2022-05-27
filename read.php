@@ -13,6 +13,7 @@
 	$update_query = "UPDATE contents SET hits = hits + 1 WHERE seq = '$seq'";	// url 파라미터로 받은 게시물 조회수 1씩 증가
 	$update_result = mysqli_query($conn, $update_query);
 
+	$seq = $row['seq'];
 	$title = $row['title'];
     $writer = $row['writer'];
     $write_date = $row['write_date'];
@@ -31,30 +32,34 @@
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<!doctype html>
 <head>
-	<meta charset="utf-8" />
-	<title>자유게시판</title>
+	<meta charset="UTF-8">
+	<title>게시판</title>
+	<link rel="stylesheet" type="text/css" href="style.css?ver=1" />
 </head>
 <body>
-	<article class="boardArticle">
-		<h3>자유게시판 글쓰기</h3>
-		<div id="boardView">
-			<h3 id="boardTitle"><?= $row['b_title']?></h3>
-			<div id="boardInfo">
-				<span id="boardID">작성자: <?= $writer?></span><br>
-				<span id="boardDate">작성일: <?= $write_date?></span><br>
-				<span id="boardHit">조회: <?= $hits?></span><br>
-			</div><br><br>
-			<div id="boardContent">내용 : <?= $content?></div><br>
-			<div class="btnSet">
-				<a href="./update.php?seq=<?= $seq?>">수정</a>&nbsp;&nbsp;
-				<a href="./delete.php?seq=<?= $seq?>">삭제</a>&nbsp;&nbsp;
-				<a href="./">목록</a>
+	
+<!-- 글 불러오기 -->
+<div id="board_read">
+	<h2><?php echo $title; ?></h2>
+		<div id="user_info">
+			<div id="bo_line"></div>
+				<span style="text-align:right";><p><h4>작성자 : <a style="color:blue;"><?=$writer; ?></a></h4></p></span>
+				<span style="text-align:right";><p><h4>작성일 : <a style="color:blue;"><?=$write_date; ?></a></h4></p></span>
+				<span style="text-align:right";><p><h4>조회수 : <a style="color:blue;"><?=$hits; ?></a></h4></p></span>
 			</div>
-		</div>
-		<?php require_once('./comment.php'); ?>
-	</article>
+			<div id="bo_content">
+				<?php echo nl2br("$content"); ?>
+			</div>
+	<!-- 목록, 수정, 삭제 -->
+	<div id="bo_ser">
+		<ul>
+			<li><a href="index.php">[목록으로]</a></li>
+			<li><a href="update.php?idx=<?php echo $seq; ?>">[수정]</a></li>
+			<li><a href="delete.php?idx=<?php echo $seq; ?>">[삭제]</a></li>
+		</ul>
+	</div>
+</div>
 </body>
 </html>
